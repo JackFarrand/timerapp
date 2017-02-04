@@ -1,8 +1,21 @@
 /*style.css - copyright jack farrand 2017*/
+
+@font-face { font-family: Digital7; src: url('fonts/digital_7/digital-7_mono.ttf'); format("truetype")}
+ 
 body,html
 {
 	margin: 0px;
 	padding: 0px;	
+}
+
+h1
+{
+	margin: 5px;
+}
+
+hr
+{
+	color: #aaa;
 }
 
 #maincontent
@@ -11,7 +24,15 @@ body,html
 	width: 80%;
 	margin: 5px auto;
 	text-align: center;
-	padding: 5px;
+	padding: 15px;
 	border-radius: 5px;
 	
+}
+
+.digitaltimer
+{
+	font-family: Digital7;
+	font-size: 36pt;
+	margin: 0px;
+	padding: 5px 15px;
 }
