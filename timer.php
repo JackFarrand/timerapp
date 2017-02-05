@@ -24,6 +24,6 @@ else
 {
 	echo "Hello World\n";
 	echo date('m/d/Y h:i:s a', time());
-	echo "pick a function call next time, dingus."
+	echo "pick a function call next time, dingus.";
 }
 ?>
