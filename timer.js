@@ -1,7 +1,8 @@
 function loadTimers() 
 {
-	window.setInterval(updateTimers, 1000);
 	setTalkName();
+	window.setInterval(updateTimers, 1000);
+	
 }
 
 function updateTimers() 
