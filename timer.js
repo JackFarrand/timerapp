@@ -31,7 +31,7 @@ function getMessages()
 
 	var params = "functioncall=setTimer"
 	//Initiate the XMLHttpRequest object
-    xmlHttpRequest.open("GET"+"?"+params, "timer.php", true);
+    xmlHttpRequest.open("GET", "timer.php"+"?"+params, true);
 
     //Setup the callback function
     xmlHttpRequest.onreadystatechange = StateChange;
