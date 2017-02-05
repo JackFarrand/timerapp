@@ -18,7 +18,7 @@ function getTalkName()
 function setTalkName() 
 {
 	$talkName = $_GET['talkName'];
-	apc_store("talkName", $talkName);
+	apc_store("talkName", "This is a talk name");
 }
 
 if($_GET['functioncall'] === "setTimer") 
