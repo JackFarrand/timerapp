@@ -30,7 +30,7 @@ function getMessages()
 	if (xmlHttpRequest == null) return;		//NOPE
 
 	//Initiate the XMLHttpRequest object
-    xmlHttpRequest.open("GET", "Time.aspx", true);
+    xmlHttpRequest.open("GET", "timer.php", true);
 
     //Setup the callback function
     xmlHttpRequest.onreadystatechange = StateChange;
