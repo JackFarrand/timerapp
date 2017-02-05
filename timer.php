@@ -2,6 +2,5 @@
 
 echo "Hello World";
 
-echo time();
-
+echo date('m/d/Y h:i:s a', time());
 ?>
