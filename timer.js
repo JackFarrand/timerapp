@@ -6,7 +6,7 @@ function loadTimers()
 function updateTimers() 
 {
 	updateCountDownTimer();
-	//updateCountUpTimer();
+	updateCountUpTimer();
 	getMessages();
 }
 
@@ -45,7 +45,7 @@ function StateChange()
 {
     if(xmlHttpRequest.readyState == 4) //4== response complete apparently
     {
-		document.getElementById('timer_up').innerHTML = xmlHttpRequest.responseText;
+		document.getElementById('messageOutput').innerHTML = xmlHttpRequest.responseText;
     }
 }
 
