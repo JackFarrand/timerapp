@@ -7,6 +7,7 @@ function updateTimers()
 {
 	updateCountDownTimer();
 	updateCountUpTimer();
+	getMessages();
 }
 
 function updateCountDownTimer() 
@@ -24,5 +25,26 @@ function updateCountUpTimer()
 function getMessages() 
 {
 	//Todo, display messages from host.
+	
+	xmlHttpRequest = new XMLHttpRequest(); //Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
+	if (xmlHttpRequest == null) return;		//NOPE
+
+	//Initiate the XMLHttpRequest object
+    xmlHttpRequest.open("GET", "Time.aspx", true);
+
+    //Setup the callback function
+    xmlHttpRequest.onreadystatechange = StateChange;
+
+    //Send the Ajax request to the server with the GET data
+    xmlHttpRequest.send(null);
+	
+}
+
+function StateChange()
+{
+    if(xmlHttpRequest.readyState == 4) //4== response complete apparently
+    {
+		document.getElementById('timer_up').innerHTML = xmlHttpRequest.responseText;
+    }
 }
 
