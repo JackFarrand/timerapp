@@ -7,8 +7,15 @@ function setTimer()
 
 function getTalkName() 
 {
-	$talkName = "Treasures from God's Word";
+	//$talkName = "Treasures from God's Word";
+	$talkName = apc_fetch('talkName');
 	echo $talkName;
+}
+
+function setTalkName() 
+{
+	$talkName = $_GET['talkName'];
+	apc_store("talkName", $talkName);
 }
 
 if($_GET['functioncall'] === "setTimer") 
