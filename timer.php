@@ -27,8 +27,11 @@ if($_GET['functioncall'] === "setTimer")
 }
 elseif($_GET['functioncall'] === "getTalkName") 
 {
-	//setTalkName();
 	getTalkName();
+}
+elseif($_GET['functioncall'] === "setTalkName") 
+{
+	setTalkName();
 }
 
 else 
