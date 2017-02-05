@@ -7,7 +7,20 @@ function updateTimers()
 {
 	updateCountDownTimer();
 	updateCountUpTimer();
+	updateTalkName();
 	getMessages();
+}
+
+function updateTalkName() 
+{
+	xmlHttpRequest = new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
+	if (xmlHttpRequest == null) return;															//NOPE
+
+	var params = "functioncall=getTalkName" 													//set the function the server is supposed to execute by setting this variable's value
+   xmlHttpRequest.open("GET", "timer.php"+"?"+params, false);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
+   xmlHttpRequest.send();     																	//Send the Ajax request to the server with the GET data
+   
+	document.getElementById("talkName").innerHTML = xmlHttpRequest.responseText;	//set the response text to display in the relevant element.
 }
 
 function updateCountDownTimer() 

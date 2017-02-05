@@ -5,11 +5,25 @@ function setTimer()
 	echo "Timer Successfully Set";
 }
 
-if($_GET['functioncall'] === "setTimer") {setTimer();}
-else {
+function getTalkName() 
+{
+	$talkName = "Treasures from God's Word"
+	echo $talkName;
+}
 
-echo "Hello World\n";
+if($_GET['functioncall'] === "setTimer") 
+{
+	setTimer();
+}
+elseif($_GET['functioncall'] === "getTalkName") 
+{
+	getTalkName();
+}
 
-echo date('m/d/Y h:i:s a', time());
+else 
+{
+	echo "Hello World\n";
+	echo date('m/d/Y h:i:s a', time());
+	echo "pick a function call next time, dingus."
 }
 ?>
