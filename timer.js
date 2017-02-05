@@ -6,7 +6,7 @@ function loadTimers()
 function updateTimers() 
 {
 	updateCountDownTimer();
-	updateCountUpTimer();
+	//updateCountUpTimer();
 	getMessages();
 }
 
@@ -29,6 +29,7 @@ function getMessages()
 	xmlHttpRequest = new XMLHttpRequest(); //Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
 	if (xmlHttpRequest == null) return;		//NOPE
 
+	xmlHttpRequest.data = "functioncall=setTimer"
 	//Initiate the XMLHttpRequest object
     xmlHttpRequest.open("GET", "timer.php", true);
 
