@@ -7,8 +7,8 @@ function setTimer()
 
 function getTalkName() 
 {
-	$talkName = "Treasures from God's Word";
-	echo "$talkName";
+	//$talkName = "Treasures from God's Word";
+	echo "talk name here";
 }
 
 if($_GET['functioncall'] === "setTimer") 
