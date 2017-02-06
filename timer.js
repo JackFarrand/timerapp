@@ -22,16 +22,17 @@ function updateTalkName()
    					{
   							if (xhr.readyState === 4) 
   							{
-    							//if (xhr.status === 200) 
-    							//{
+    							if (xhr.status === 200) 
+    							{
       							document.getElementById("talkName").innerHTML = xhr.responseText;	//set the response text to display in the relevant element.
-    							//}
-    						/*	else 
+      							console.log(xhr.statusText);
+    							}
+    						else 
     							{
       							console.error(xhr.statusText);
-    							}*/
+    							}
   							}
-  							else {console.log(xhr.statusText);}
+  							//else {console.log(xhr.statusText);}
 						};
 	xhr.onerror = function (e) 
 					{
