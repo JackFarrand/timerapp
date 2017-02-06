@@ -71,7 +71,7 @@ function getMessages()
 	xhr_messages = new XMLHttpRequest(); //Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
 	if (xhr_messages == null) return;		//NOPE
 
-	var params = "functioncall=setTimer"
+	var params = "functioncall=getMessages"
 	//Initiate the XMLHttpRequest object
     xhr_messages.open("GET", "timer.php"+"?"+params, true);
 
@@ -94,4 +94,16 @@ function getMessages()
     //Send the Ajax request to the server with the GET data
     xhr_messages.send(null);
 	
+}
+
+function sendMessage() 
+{
+	xhr_Messages= new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
+	if (xhr_Messages== null) return;															//NOPE
+
+	var messageInput = document.getElementById("messageSendInput");
+	
+	var params = "functioncall=sendMessage&message=" + messageInput.value;	//set the function the server is supposed to execute by setting this variable's value
+   xhr_Messages.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
+	xhr_Messages.send();     	
 }

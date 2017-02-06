@@ -12,35 +12,41 @@
 <div id="maincontent">
 
 
-<h1>Talk Timer Settings</h1>
-<hr/>
+	<h1>Talk Timer Settings</h1>
+	<hr/>
 
-<h2 id="talkName">Current Talk:</h2>
-<select id="talkSelect" onchange="setTalkName()">
-  <option>Opening Comments</option>
-  <option>Treasures from God's Word</option>
-  <option>Digging for Spiritual Gems</option>
-  <option>Bible Reading</option>
-  <option>This Month's Presentations</option>
-  <option>Initial Call</option>
-  <option>Return Visit</option>
-  <option>Bible Study</option>
-  <option>Congregation Bible Study</option>
-  <option>Closing Comments</option>
-</select>
+	<h2 id="talkName">Current Talk:</h2>
+	<select id="talkSelect" onchange="setTalkName()">
+  		<option>Opening Comments</option>
+  		<option>Treasures from God's Word</option>
+  		<option>Digging for Spiritual Gems</option>
+  		<option>Bible Reading</option>
+  		<option>This Month's Presentations</option>
+  		<option>Initial Call</option>
+  		<option>Return Visit</option>
+  		<option>Bible Study</option>
+  		<option>Congregation Bible Study</option>
+  		<option>Closing Comments</option>
+	</select>
 
-<p>Time Remaining</p>
-<p class="digitaltimer" id="timer_down">14:29</p>
+	<p>Time Remaining</p>
+	<p class="digitaltimer" id="timer_down">14:29</p>
 
-<button id="startTimerButton">Start Timer</button>
-<button id="ResetTimerButton">Reset Timer</button>
+	<button id="startTimerButton">Start Timer</button>
+	<button id="ResetTimerButton">Reset Timer</button>
 
-<hr/>
+	<hr/>
 
-<div id="messageDiv">
-<p>Messages from server:</p>
-<p id="messageOutput"></p>
-</div>
+	<div id="messageDiv">
+	
+		<p>Messages from server:</p>
+		<p id="messageOutput"></p>
+		
+		<form id="messageSendForm">
+			<input type="text" id="messageSendInput">
+			<button id="messageSendButton" onclick="sendMessage()">Send Message to Platform</button>
+		</form>
+	</div>
 
 </div><!-- end of main content div -->
 </body>

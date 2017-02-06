@@ -3,9 +3,17 @@
 ini_set('display_errors', 'On');  //enable error reporting while I'm debugging the code.
 error_reporting(E_ALL);
 
-function setTimer() 
+function getMessages() 
 {
-	echo "Timer Successfully Set"; //Dummy code while I set it all up
+	$messages = apc_fetch('messages');
+	echo $messages;
+}
+
+function sendMessage() 
+{
+	$messages = apc_fetch('messages');
+	$messages += $_GET['message'] + "/n";
+	apc_store("messages", $messages);
 }
 
 function getTalkName() 
@@ -22,9 +30,9 @@ function setTalkName()
 
 /*Check the http header for function calls and execute the relevant functions if required*/
 
-if($_GET['functioncall'] === "setTimer") 
+if($_GET['functioncall'] === "getMessages") 
 {
-	setTimer();
+	getMessages();
 }
 elseif($_GET['functioncall'] === "getTalkName") 
 {
@@ -34,7 +42,10 @@ elseif($_GET['functioncall'] === "setTalkName")
 {
 	setTalkName();
 }
-
+elseif($_GET['functioncall'] === "sendMessage") 
+{
+	sendMessage();
+}
 /*if an invalid function call is sent, reply with a stupid message*/
 else 
 {
