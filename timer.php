@@ -12,7 +12,7 @@ function getMessages()
 function sendMessage() 
 {
 	$messages = apc_fetch('messages');
-	$messages += $_GET['message'] + "/n";
+	$messages .= $_GET['message'] + "/n";
 	apc_store("messages", $messages);
 }
 
