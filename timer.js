@@ -30,7 +30,7 @@ function setTalkName()
 
 	var talkSelect = document.getElementById("talkSelect");
 	
-	var params = "functioncall=setTalkName&talkName=" + talkSelect.options[talkSelect.selectedindex].value;	//set the function the server is supposed to execute by setting this variable's value
+	var params = "functioncall=setTalkName&talkName=" + talkSelect.options[talkSelect.selectedIndex].value;	//set the function the server is supposed to execute by setting this variable's value
    xmlHttpRequest.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
 	xmlHttpRequest.send();     																	//Send the Ajax request to the server with the GET data
  
