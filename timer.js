@@ -18,7 +18,7 @@ function updateTalkName()
 
 	var params = "functioncall=getTalkName" 													//set the function the server is supposed to execute by setting this variable's value
    xhr.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object 
-   xhr.onload = function (e) 														//Create an asynchronous callback to deal with the request when it comes back.
+   xhr.onreadystatechange = function (e) 														//Create an asynchronous callback to deal with the request when it comes back.
    					{
   							if (xhr.readyState === 4) 
   							{
