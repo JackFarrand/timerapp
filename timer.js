@@ -24,7 +24,7 @@ function updateTalkName()
   							{
     							if (xhr.status === 200) 
     							{
-      							document.getElementById("dave").innerHTML = xhr.responseText;	//set the response text to display in the relevant element.
+      							document.getElementById("talkName").innerHTML = xhr.responseText;	//set the response text to display in the relevant element.
       							console.log(xhr.statusText);
     							}
     						else 
@@ -72,18 +72,18 @@ function getMessages()
 {
 	//Todo, display messages from host.
 	
-	xhr = new XMLHttpRequest(); //Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
-	if (xhr == null) return;		//NOPE
+	xhr1 = new XMLHttpRequest(); //Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
+	if (xhr1 == null) return;		//NOPE
 
 	var params = "functioncall=setTimer"
 	//Initiate the XMLHttpRequest object
-    xhr.open("GET", "timer.php"+"?"+params, true);
+    xhr1.open("GET", "timer.php"+"?"+params, true);
 
     //Setup the callback function
-    xhr.onreadystatechange = StateChange;
+    xhr1.onreadystatechange = StateChange;
 
     //Send the Ajax request to the server with the GET data
-    xhr.send(null);
+    xhr1.send(null);
 	
 }
 
@@ -91,7 +91,7 @@ function StateChange() //update messages from server
 {
     if(xhr.readyState == 4) //4== response complete apparently
     {
-		document.getElementById('messageOutput').innerHTML = xhr.responseText;
+		document.getElementById('messageOutput').innerHTML = xhr1.responseText;
     }
 }
 
