@@ -45,12 +45,13 @@ function setTalkName()
 	if (xhr_talkName== null) return;															//NOPE
 
 	var talkSelect = document.getElementById("talkSelect");
+	var talkTime = 8;
 	
-	var params = "functioncall=setTalkName&talkName=" + talkSelect.options[talkSelect.selectedIndex].value;	//set the function the server is supposed to execute by setting this variable's value
+	var params = "functioncall=setTalkName&talkTime="+ talkTime +"&talkName=" + talkSelect.options[talkSelect.selectedIndex].value;	//set the function the server is supposed to execute by setting this variable's value
    xhr_talkName.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
 	xhr_talkName.send();     																	//Send the Ajax request to the server with the GET data
- 
 }
+
 
 function updateCountDownTimer() 
 {

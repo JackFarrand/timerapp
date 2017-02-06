@@ -38,7 +38,7 @@ function getTalkName()
 
 function setTalkName() 
 {
-	$talkName = $_GET['talkName'];
+	$talkName = $_GET['talkName'] . " " . $_GET['talkTime'] . " Minutes";
 	apc_store("talkName", $talkName); //store this in the APC cache, short term server-side storage so we can get at it later
 	
 	//as a side point, we now need to clear all messages for the previous talk, so now we do that.
