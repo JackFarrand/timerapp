@@ -6,7 +6,7 @@ function loadTimers()
 function updateTimers() 
 {
 	updateCountDownTimer();
-	updateCountUpTimer();
+//	updateCountUpTimer();
 	updateTalkName();
 	getMessages();
 }
