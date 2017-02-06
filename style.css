@@ -18,6 +18,13 @@ hr
 	color: #aaa;
 }
 
+pre
+{
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
+
 #maincontent
 {
 	background-color: #eee;
