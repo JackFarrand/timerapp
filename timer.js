@@ -13,46 +13,42 @@ function updateTimers()
 
 function updateTalkName() 
 {
-	xhr = new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
-	if (xhr == null) return;															//NOPE
+	xhr_talkName= new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
+	if (xhr_talkName== null) return;															//NOPE
 
 	var params = "functioncall=getTalkName" 													//set the function the server is supposed to execute by setting this variable's value
-   xhr.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object 
-   xhr.onreadystatechange = function (e) 														//Create an asynchronous callback to deal with the request when it comes back.
+   xhr_talkName.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object 
+   xhr_talkName.onreadystatechange = function (e) 														//Create an asynchronous callback to deal with the request when it comes back.
    					{
-  							if (xhr.readyState === 4) 
+  							if (xhr_talkName.readyState === 4) 
   							{
-    							if (xhr.status === 200) 
+    							if (xhr_talkName.status === 200) 
     							{
-      							document.getElementById("talkName").innerHTML = xhr.responseText;	//set the response text to display in the relevant element.
-      							console.log(xhr.statusText);
+      							document.getElementById("talkName").innerHTML = xhr_talkName.responseText;	//set the response text to display in the relevant element.
+      							console.log(xhr_talkName.statusText);
     							}
     						else 
     							{
-      							console.error(xhr.statusText);
+      							console.error(xhr_talkName.statusText);
     							}
   							}
-  							//else {console.log(xhr.statusText);}
-						};
-	xhr.onerror = function (e) 
-					{
-  						console.error(xhr.statusText);
-					};
-   xhr.send();     																	//Send the Ajax request to the server with the GET data
+
+						};;
+   xhr_talkName.send();     																	//Send the Ajax request to the server with the GET data
    
 
 }
 
 function setTalkName() 
 {
-	xhr = new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
-	if (xhr == null) return;															//NOPE
+	xhr_talkName= new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
+	if (xhr_talkName== null) return;															//NOPE
 
 	var talkSelect = document.getElementById("talkSelect");
 	
 	var params = "functioncall=setTalkName&talkName=" + talkSelect.options[talkSelect.selectedIndex].value;	//set the function the server is supposed to execute by setting this variable's value
-   xhr.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
-	xhr.send();     																	//Send the Ajax request to the server with the GET data
+   xhr_talkName.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
+	xhr_talkName.send();     																	//Send the Ajax request to the server with the GET data
  
 }
 
@@ -72,26 +68,30 @@ function getMessages()
 {
 	//Todo, display messages from host.
 	
-	xhr1 = new XMLHttpRequest(); //Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
-	if (xhr1 == null) return;		//NOPE
+	xhr_messages = new XMLHttpRequest(); //Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
+	if (xhr_messages == null) return;		//NOPE
 
 	var params = "functioncall=setTimer"
 	//Initiate the XMLHttpRequest object
-    xhr1.open("GET", "timer.php"+"?"+params, true);
+    xhr_messages.open("GET", "timer.php"+"?"+params, true);
 
     //Setup the callback function
-    xhr1.onreadystatechange = StateChange;
+    xhr_messages.onreadystatechange = function (e) 														//Create an asynchronous callback to deal with the request when it comes back.
+   					{
+  							if (xhr_messages.readyState === 4) 
+  							{
+    							if (xhr_messages.status === 200) 
+    							{
+									document.getElementById('messageOutput').innerHTML = xhr_messages.responseText;
+    							}
+    						else 
+    							{
+      							console.error(xhr_messages.statusText);
+    							}
+  							}
+						};;
 
     //Send the Ajax request to the server with the GET data
-    xhr1.send(null);
+    xhr_messages.send(null);
 	
 }
-
-function StateChange() //update messages from server
-{
-    if(xhr.readyState == 4) //4== response complete apparently
-    {
-		document.getElementById('messageOutput').innerHTML = xhr1.responseText;
-    }
-}
-
