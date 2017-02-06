@@ -1,4 +1,4 @@
-//Copyright Jack Farrand 2017
+/*Copyright Jack Farrand 2017*/
 <?php
 
 ini_set('display_errors', 'On');  //enable error reporting while I'm debugging the code.
