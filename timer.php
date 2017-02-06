@@ -40,6 +40,10 @@ function setTalkName()
 {
 	$talkName = $_GET['talkName'];
 	apc_store("talkName", $talkName); //store this in the APC cache, short term server-side storage so we can get at it later
+	
+	//as a side point, we now need to clear all messages for the previous talk, so now we do that.
+	$messages = "";
+	apc_store("messages", $messages);
 }
 
 /*Check the http header for function calls and execute the relevant functions if required*/
