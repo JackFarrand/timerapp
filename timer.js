@@ -31,6 +31,7 @@ function updateTalkName()
       							console.error(xhr.statusText);
     							}*/
   							}
+  							else {console.log(xhr.statusText);}
 						};
 	xhr.onerror = function (e) 
 					{
