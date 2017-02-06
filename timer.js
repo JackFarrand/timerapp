@@ -24,7 +24,7 @@ function updateTalkName()
   							{
     							if (xhr.status === 200) 
     							{
-      							document.getElementById("talkName").innerHTML = xhr.responseText;	//set the response text to display in the relevant element.
+      							document.getElementById("dave").innerHTML = xhr.responseText;	//set the response text to display in the relevant element.
       							console.log(xhr.statusText);
     							}
     						else 
