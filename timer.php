@@ -3,7 +3,7 @@
 ini_set('display_errors', 'On');  //enable error reporting while I'm debugging the code.
 error_reporting(E_ALL);
 
-function cleanInput($input) 
+function sanitize($input) 
 {
  
   $search = array(
@@ -26,7 +26,7 @@ function getMessages()
 function sendMessage() 
 {
 	$messages = apc_fetch('messages');
-	$messages .= "<p>" . cleanInput($_GET['message']) . "</p>";  //sanitize the input we receive from the client
+	$messages .= "<p>" . santize($_GET['message']) . "</p>";  //sanitize the input we receive from the client
 	apc_store("messages", $messages);
 }
 
@@ -38,8 +38,10 @@ function getTalkName()
 
 function setTalkName() 
 {
-	$talkName = $_GET['talkName'] . " " . $_GET['talkTime'] . " Minutes";
+	$talkName = sanitize($_GET['talkName']);
+	$talkTime = sanitize($_GET['talkTime']);
 	apc_store("talkName", $talkName); //store this in the APC cache, short term server-side storage so we can get at it later
+	apc_store("talkTime", $talkTime);
 	
 	//as a side point, we now need to clear all messages for the previous talk, so now we do that.
 	$messages = "";
