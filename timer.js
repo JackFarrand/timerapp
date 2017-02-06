@@ -13,26 +13,44 @@ function updateTimers()
 
 function updateTalkName() 
 {
-	xmlHttpRequest = new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
-	if (xmlHttpRequest == null) return;															//NOPE
+	xhr = new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
+	if (xhr == null) return;															//NOPE
 
 	var params = "functioncall=getTalkName" 													//set the function the server is supposed to execute by setting this variable's value
-   xmlHttpRequest.open("GET", "timer.php"+"?"+params, false);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
-   xmlHttpRequest.send();     																	//Send the Ajax request to the server with the GET data
+   xhr.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object 
+   xhr.onload = function (e) 														//Create an asynchronous callback to deal with the request when it comes back.
+   					{
+  							if (xhr.readyState === 4) 
+  							{
+    							if (xhr.status === 200) 
+    							{
+      							document.getElementById("talkName").innerHTML = xhr.responseText;	//set the response text to display in the relevant element.
+    							}
+    							else 
+    							{
+      							console.error(xhr.statusText);
+    							}
+  							}
+						};
+	xhr.onerror = function (e) 
+					{
+  						console.error(xhr.statusText);
+					};
+   xhr.send();     																	//Send the Ajax request to the server with the GET data
    
-	document.getElementById("talkName").innerHTML = xmlHttpRequest.responseText;	//set the response text to display in the relevant element.
+
 }
 
 function setTalkName() 
 {
-	xmlHttpRequest = new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
-	if (xmlHttpRequest == null) return;															//NOPE
+	xhr = new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
+	if (xhr == null) return;															//NOPE
 
 	var talkSelect = document.getElementById("talkSelect");
 	
 	var params = "functioncall=setTalkName&talkName=" + talkSelect.options[talkSelect.selectedIndex].value;	//set the function the server is supposed to execute by setting this variable's value
-   xmlHttpRequest.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
-	xmlHttpRequest.send();     																	//Send the Ajax request to the server with the GET data
+   xhr.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
+	xhr.send();     																	//Send the Ajax request to the server with the GET data
  
 }
 
@@ -52,26 +70,26 @@ function getMessages()
 {
 	//Todo, display messages from host.
 	
-	xmlHttpRequest = new XMLHttpRequest(); //Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
-	if (xmlHttpRequest == null) return;		//NOPE
+	xhr = new XMLHttpRequest(); //Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
+	if (xhr == null) return;		//NOPE
 
 	var params = "functioncall=setTimer"
 	//Initiate the XMLHttpRequest object
-    xmlHttpRequest.open("GET", "timer.php"+"?"+params, true);
+    xhr.open("GET", "timer.php"+"?"+params, true);
 
     //Setup the callback function
-    xmlHttpRequest.onreadystatechange = StateChange;
+    xhr.onreadystatechange = StateChange;
 
     //Send the Ajax request to the server with the GET data
-    xmlHttpRequest.send(null);
+    xhr.send(null);
 	
 }
 
-function StateChange()
+function StateChange() //update messages from server
 {
-    if(xmlHttpRequest.readyState == 4) //4== response complete apparently
+    if(xhr.readyState == 4) //4== response complete apparently
     {
-		document.getElementById('messageOutput').innerHTML = xmlHttpRequest.responseText;
+		document.getElementById('messageOutput').innerHTML = xhr.responseText;
     }
 }
 
