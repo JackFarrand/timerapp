@@ -3,6 +3,20 @@
 ini_set('display_errors', 'On');  //enable error reporting while I'm debugging the code.
 error_reporting(E_ALL);
 
+function cleanInput($input) 
+{
+ 
+  $search = array(
+    '@<script[^>]*?>.*?</script>@si',   // Strip out javascript
+    '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+    '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+    '@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
+  );
+ 
+    $output = preg_replace($search, '', $input);
+    return $output;
+}
+
 function getMessages() 
 {
 	$messages = apc_fetch('messages');
@@ -13,6 +27,7 @@ function sendMessage()
 {
 	$messages = apc_fetch('messages');
 	$messages .= $_GET['message'];
+	$messages = cleanInput($messages);
 	apc_store("messages", $messages);
 }
 
