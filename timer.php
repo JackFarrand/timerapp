@@ -56,6 +56,7 @@ function getTime()
 	date_default_timezone_set ("Europe/London");
 
 //	echo date("i:s", time());	
+	$started=false;
 	
 	if($started) 
 	{
