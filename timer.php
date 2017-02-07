@@ -52,7 +52,9 @@ function setTalkName()
 function getTime()
 {
 	$talkTime = apc_fetch("talkTime");
-	echo $talkTime;	
+	//echo $talkTime;
+	date_default_timezone_set ("Europe/London");
+	echo date("i:s", time());	
 }
 
 /*Check the http header for function calls and execute the relevant functions if required*/
