@@ -38,15 +38,23 @@ function getTalkName()
 
 function setTalkName() 
 {
-	$talkName = sanitize($_GET['talkName']);
+	$talkName = sanitize($_GET['talkName']); //set the inputs, and sanitize them so no code injection can take place.
 	$talkTime = sanitize($_GET['talkTime']);
-	$talkName .= " - " . $talkTime . " Minutes";
+	
+//	$talkName .= " - " . $talkTime . " Minutes"; //debug code
 	apc_store("talkName", $talkName); //store this in the APC cache, short term server-side storage so we can get at it later
 	apc_store("talkTime", $talkTime);
 	
 	//as a side point, we now need to clear all messages for the previous talk, so now we do that.
 	$messages = "";
 	apc_store("messages", $messages);
+	
+	//set the started variable so the talk doesn't start automatically
+	$started = true;
+	apc_store("timerStarted", $started);
+	
+	$startTime = time();
+	apc_store(startTime, $startTime);
 }
 
 function getTime()
@@ -55,19 +63,20 @@ function getTime()
 	//echo $talkTime;
 	date_default_timezone_set ("Europe/London");
 
-//	echo date("i:s", time());	
-	$started=false;
+//	echo date("i:s", time());	//debug code
+	$started = apc_fetch("timerStarted");
+	$startTime = apc_fetch("startTime");
 	
 	if($started) 
 	{
-		
+		$remaining = ($startTime + $talkTime * 60) - time(); 
 	}
 	else 
 	{
 		$remaining = $talkTime * 60;
-		echo date("i:s", $remaining);
 	}
-	
+
+	echo date("i:s", $remaining);	
 }
 
 /*Check the http header for function calls and execute the relevant functions if required*/
