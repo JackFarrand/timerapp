@@ -54,7 +54,19 @@ function getTime()
 	$talkTime = apc_fetch("talkTime");
 	//echo $talkTime;
 	date_default_timezone_set ("Europe/London");
-	echo date("i:s", time());	
+
+//	echo date("i:s", time());	
+	
+	if($started) 
+	{
+		
+	}
+	else 
+	{
+		$remaining = $talkTime * 60;
+		echo date("i:s", $remaining);
+	}
+	
 }
 
 /*Check the http header for function calls and execute the relevant functions if required*/
