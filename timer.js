@@ -33,6 +33,20 @@ function updateTimers()
 	getMessages();
 }
 
+function loadSettings() 
+{
+	window.setInterval(updateSettings, 1000);	
+}
+
+function updateSettings() 
+{	
+	updateCountDownTimer();
+
+	updateTalkName();
+	getMessages();
+}
+
+
 function updateTalkName() 
 {
 	xhr_talkName= new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
