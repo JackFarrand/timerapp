@@ -40,6 +40,7 @@ function setTalkName()
 {
 	$talkName = sanitize($_GET['talkName']);
 	$talkTime = sanitize($_GET['talkTime']);
+	$talkName .= " - " . $talkTime . " Minutes";
 	apc_store("talkName", $talkName); //store this in the APC cache, short term server-side storage so we can get at it later
 	apc_store("talkTime", $talkTime);
 	

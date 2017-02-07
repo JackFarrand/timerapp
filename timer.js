@@ -1,3 +1,25 @@
+
+var talkLengths = 
+[3, 10, 8, 4, 2, 4, 6, 15, 5, 10, 30, 3];
+/*
+<select id="talkSelect" onchange="setTalkName()">
+  		<option>Opening Comments</option>
+  		
+  		<option>Treasures from God's Word</option>
+  		<option>Digging for Spiritual Gems</option>
+  		
+  		<option>Bible Reading</option>
+  		<option>Initial Call</option>
+  		<option>Return Visit</option>
+  		<option>Bible Study</option>
+  		<option>This Month's Presentations</option>
+  		
+  		<option>Living as Christians Talk 1</option>
+  		<option>Living as Christians Talk 2</option>
+  		<option>Congregation Bible Study</option>
+  		<option>Closing Review & Preview</option>
+  	</select> */
+
 function loadTimers() 
 {
 	window.setInterval(updateTimers, 1000);	
@@ -45,7 +67,7 @@ function setTalkName()
 	if (xhr_talkName== null) return;															//NOPE
 
 	var talkSelect = document.getElementById("talkSelect");
-	var talkTime = 8;
+	var talkTime = talkLengths[talkSelect.selectedIndex];
 	
 	var params = "functioncall=setTalkName&talkTime="+ talkTime +"&talkName=" + talkSelect.options[talkSelect.selectedIndex].value;	//set the function the server is supposed to execute by setting this variable's value
    xhr_talkName.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
