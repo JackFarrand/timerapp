@@ -69,7 +69,7 @@ function getTime()
 	
 	if($started) 
 	{
-		$remaining = ($startTime + $talkTime * 60) - time(); 
+		$remaining = min(($startTime + $talkTime * 60) - time(), 0); 
 	}
 	else 
 	{
