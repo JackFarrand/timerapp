@@ -49,11 +49,21 @@ function setTalkName()
 	apc_store("messages", $messages);
 }
 
+function getTime()
+{
+	$talkTime = apc_fetch("talkTime");
+	echo $talkTime;	
+}
+
 /*Check the http header for function calls and execute the relevant functions if required*/
 
 if($_GET['functioncall'] === "getMessages") 
 {
 	getMessages();
+}
+elseif($_GET['functioncall'] === "sendMessage") 
+{
+	sendMessage();
 }
 elseif($_GET['functioncall'] === "getTalkName") 
 {
@@ -63,10 +73,11 @@ elseif($_GET['functioncall'] === "setTalkName")
 {
 	setTalkName();
 }
-elseif($_GET['functioncall'] === "sendMessage") 
+elseif($_GET['functioncall'] === "getTime") 
 {
-	sendMessage();
+	getTime();
 }
+
 /*if an invalid function call is sent, reply with a stupid message*/
 else 
 {

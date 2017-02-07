@@ -61,7 +61,7 @@ function updateTalkName()
 
 }
 
-function setTalkName() 
+function setTalkName()
 {
 	xhr_talkName= new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
 	if (xhr_talkName== null) return;															//NOPE
@@ -77,8 +77,32 @@ function setTalkName()
 
 function updateCountDownTimer() 
 {
-	var d = new Date();
-   document.getElementById("timer_down").innerHTML = d.toLocaleTimeString();
+		
+	xhr_time = new XMLHttpRequest(); //Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
+	if (xhr_time == null) return;		//NOPE
+
+	var params = "functioncall=getTime"
+	//Initiate the XMLHttpRequest object
+    xhr_time.open("GET", "timer.php"+"?"+params, true);
+
+    //Setup the callback function
+    xhr_time.onreadystatechange = function (e) 														//Create an asynchronous callback to deal with the request when it comes back.
+   					{
+  							if (xhr_time.readyState === 4) 
+  							{
+    							if (xhr_time.status === 200) 
+    							{
+									document.getElementById('timer_down').innerHTML = xhr_time.responseText;
+    							}
+    						else 
+    							{
+      							console.error(xhr_time.statusText);
+    							}
+  							}
+						};;
+
+    //Send the Ajax request to the server with the GET data
+    xhr_time.send(null);
 }
 /*
 function updateCountUpTimer() 
@@ -89,7 +113,7 @@ function updateCountUpTimer()
 */
 function getMessages() 
 {
-	//Todo, display messages from host.
+
 	
 	xhr_messages = new XMLHttpRequest(); //Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
 	if (xhr_messages == null) return;		//NOPE
