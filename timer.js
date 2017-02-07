@@ -1,3 +1,8 @@
+//copyright Jack Farrand 2017
+/*TODO:
+	Add bell to final timer as an option
+	Add flashing text to last minute/30 seconds
+	*/
 
 var talkLengths = 
 [3, 10, 8, 4, 2, 4, 6, 15, 5, 10, 30, 3];
