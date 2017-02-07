@@ -55,7 +55,7 @@ function updateTalkName()
       							document.getElementById("talkName").innerHTML = xhr_talkName.responseText;	//set the response text to display in the relevant element.
       							console.log(xhr_talkName.statusText);
     							}
-    						else 
+    							else 
     							{
       							console.error(xhr_talkName.statusText);
     							}
@@ -81,6 +81,25 @@ function setTalkName()
 	xhr_talkName.send();     																	//Send the Ajax request to the server with the GET data
 }
 
+function startTimer() 
+{
+	xhr_control= new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
+	if (xhr_control== null) return;															//NOPE
+
+	var params = "functioncall=startTimer";
+   xhr_control.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
+	xhr_control.send();     																	//Send the Ajax request to the server with the GET data
+}
+
+function resetTimer()
+{
+	xhr_control= new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
+	if (xhr_control== null) return;															//NOPE
+
+	var params = "functioncall=resetTimer";
+   xhr_control.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
+	xhr_control.send();    																	//Send the Ajax request to the server with the GET data
+}
 
 function updateCountDownTimer() 
 {

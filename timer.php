@@ -50,7 +50,7 @@ function setTalkName()
 	apc_store("messages", $messages);
 	
 	//set the started variable so the talk doesn't start automatically
-	$started = true;
+	$started = false;
 	apc_store("timerStarted", $started);
 	
 	$startTime = time();
@@ -63,7 +63,7 @@ function getTime()
 	//echo $talkTime;
 	date_default_timezone_set ("Europe/London");
 
-//	echo date("i:s", time());	//debug code
+	//echo date("i:s", time());	//debug code
 	$started = apc_fetch("timerStarted");
 	$startTime = apc_fetch("startTime");
 	
@@ -77,6 +77,24 @@ function getTime()
 	}
 
 	echo date("i:s", $remaining);	
+}
+
+function startTimer() 
+{
+	$startTime = time();
+	apc_store("startTime", $startTime);
+	
+	$started = true;
+	apc_store("timerStarted", $started);
+}
+
+function resetTimer() 
+{
+	$started = false;
+	apc_store("timerStarted", $started);
+	
+	$startTime = time();
+	apc_store("startTime", $startTime);
 }
 
 /*Check the http header for function calls and execute the relevant functions if required*/
@@ -100,6 +118,14 @@ elseif($_GET['functioncall'] === "setTalkName")
 elseif($_GET['functioncall'] === "getTime") 
 {
 	getTime();
+}
+elseif($_GET['functioncall'] === "startTimer") 
+{
+	startTimer();
+}
+elseif($_GET['functioncall'] === "resetTimer") 
+{
+	resetTimer();
 }
 
 /*if an invalid function call is sent, reply with a stupid message*/
