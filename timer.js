@@ -207,5 +207,7 @@ function sendMessage()
 	
 	var params = "functioncall=sendMessage&message=" + messageInput.value;	//set the function the server is supposed to execute by setting this variable's value
    xhr_Messages.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
-	xhr_Messages.send();     	
+	xhr_Messages.send();   
+
+	messageInput.value = "";	  	
 }
