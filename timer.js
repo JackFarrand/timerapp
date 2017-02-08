@@ -129,19 +129,23 @@ function updateCountDownTimer()
 									if (seconds < 0) 
 									{
 										timerElement.style.color = seconds % 2 === 0? "red" : "white";
+										timerElement.style.textShadow = seconds % 2 === 0? "0px 0px 10px red" : "0px 0px 10px white";
 										
 									}
 									else if (seconds < 30) 
 									{
 										timerElement.style.color = "red";
+										timerElement.style.textShadow = "0px 0px 10px red";
 									}
 									else if (seconds < 60)
 									{
 										timerElement.style.color = "orange";
+										timerElement.style.textShadow = "0px 0px 10px orange";
 									}
 									else 
 									{
 										timerElement.style.color = "white";
+										timerElement.style.textShadow = "0px 0px 10px white";
 									}
 									
     							}
