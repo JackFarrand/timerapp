@@ -118,7 +118,11 @@ function updateCountDownTimer()
   							{
     							if (xhr_time.status === 200) 
     							{
-									document.getElementById('timer_down').innerHTML = xhr_time.responseText;
+    								var seconds = xhr_time.responseText;
+    								var date = new Date(null);
+									date.setSeconds(seconds); // specify value for SECONDS here
+    								
+									document.getElementById('timer_down').innerHTML = date.toISOString().substr(11, 8);
     							}
     						else 
     							{
