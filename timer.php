@@ -76,7 +76,8 @@ function getTime()
 		$remaining = $talkTime * 60;
 	}
 
-	echo date("i:s", $remaining);	
+	//echo date("i:s", $remaining);
+	echo $remaining;	
 }
 
 function startTimer() 
