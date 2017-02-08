@@ -40,7 +40,10 @@ pre
 {
 	font-family: Digital7;
 	font-size: 15em;
-	margin: 100px;
+	padding: 25px;
+	margin: 0px auto;
+	line-height: 100%;
+	
 	background-color: black;
 	color: white;
 	border-radius: 15px;
