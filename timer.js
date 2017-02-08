@@ -122,7 +122,7 @@ function updateCountDownTimer()
     								var date = new Date(null);
 									date.setSeconds(seconds); // specify value for SECONDS here
     								
-									document.getElementById('timer_down').innerHTML = date.toISOString().substr(11, 8);
+									document.getElementById('timer_down').innerHTML = date.toISOString().substr(14,5);
     							}
     						else 
     							{
