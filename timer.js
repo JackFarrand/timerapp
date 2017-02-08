@@ -122,7 +122,27 @@ function updateCountDownTimer()
     								var date = new Date(null);
 									date.setSeconds(Math.abs(seconds)); // specify value for SECONDS here
     								
-									document.getElementById('timer_down').innerHTML = date.toISOString().substr(14,5);
+    								var timerElement = document.getElementById('timer_down');
+									timerElement.innerHTML = date.toISOString().substr(14,5);
+									
+									//set the colour of the text depending on the time remaining
+									if (seconds < 0) 
+									{
+										timerElement.style.color = "red";
+									}
+									else if (seconds < 30) 
+									{
+										timerElement.style.color = "orange";
+									}
+									else if (seconds < 60)
+									{
+										timerElement.style.color = "green";
+									}
+									else 
+									{
+										timerElement.style.color = "black";
+									}
+									
     							}
     						else 
     							{
