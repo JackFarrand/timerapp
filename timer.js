@@ -128,7 +128,7 @@ function updateCountDownTimer()
 									//set the colour of the text depending on the time remaining
 									if (seconds < 0) 
 									{
-										timerElement.style.color = seconds % 2 === 0? "red" : "black";
+										timerElement.style.color = seconds % 2 === 0? "red" : "white";
 										
 									}
 									else if (seconds < 30) 
