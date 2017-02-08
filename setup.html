@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>Meeting Timer Control</title>
 <link rel="stylesheet" href="style.css" />
 <script type="text/javascript" src="timer.js"></script>
@@ -15,8 +17,16 @@
 
 	<h1>Talk Timer Settings</h1>
 	<hr/>
-
 	
+	<h2 id="talkName">$Current Talk</h2>
+
+<!--	<p>Time Remaining:</p> -->
+	<p class="digitaltimer" id="timer_down">14:29</p>
+
+	<button id="startTimerButton" onclick="startTimer()">Start Timer</button>
+	<button id="ResetTimerButton" onclick="resetTimer()">Reset Timer</button>
+
+	<hr/>
 	
 	<p>Select talk:</p>
 	<select id="talkSelect" onchange="setTalkName()">
@@ -36,17 +46,8 @@
   		<option>Congregation Bible Study</option>
   		<option>Closing Review & Preview</option>
   	</select>
-
-	<p>Current Talk:</p>
-	<h2 id="talkName">Current Talk:</h2>
-
-	<p>Time Remaining:</p>
-	<p class="digitaltimer" id="timer_down">14:29</p>
-
-	<button id="startTimerButton" onclick="startTimer()">Start Timer</button>
-	<button id="ResetTimerButton" onclick="resetTimer()">Reset Timer</button>
-
-	<hr/>
+  	
+  	<hr/>
 
 	<div id="messageDiv">
 	

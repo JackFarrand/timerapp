@@ -18,11 +18,16 @@ hr
 	color: #aaa;
 }
 
-pre
+button
 {
-	white-space: -moz-pre-wrap;
-	white-space: -o-pre-wrap;
-	word-wrap: break-word;
+	height: 45px;
+	margin: 15px;
+	width: 150px;
+}
+
+select
+{
+	height: 45px;
 }
 
 #maincontent
