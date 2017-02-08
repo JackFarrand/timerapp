@@ -120,7 +120,7 @@ function updateCountDownTimer()
     							{
     								var seconds = xhr_time.responseText;
     								var date = new Date(null);
-									date.setSeconds(seconds); // specify value for SECONDS here
+									date.setSeconds(abs(seconds)); // specify value for SECONDS here
     								
 									document.getElementById('timer_down').innerHTML = date.toISOString().substr(14,5);
     							}
