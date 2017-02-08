@@ -41,4 +41,7 @@ pre
 	font-family: Digital7;
 	font-size: 15em;
 	margin: 100px;
+	background-color: black;
+	color: white;
+	border-radius: 15px;
 }

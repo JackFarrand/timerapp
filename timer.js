@@ -141,7 +141,7 @@ function updateCountDownTimer()
 									}
 									else 
 									{
-										timerElement.style.color = "black";
+										timerElement.style.color = "white";
 									}
 									
     							}
