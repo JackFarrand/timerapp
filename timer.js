@@ -5,7 +5,7 @@
 	*/
 
 var talkLengths = 
-[3, 10, 8, 4, 2, 4, 6, 15, 5, 10, 30, 3];
+[3, 10, 8, 4, 2, 4, 6, 15, 5, 10, 30, 3, 30, 60];
 /*
 <select id="talkSelect" onchange="setTalkName()">
   		<option>Opening Comments</option>
