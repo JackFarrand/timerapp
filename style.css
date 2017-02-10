@@ -51,6 +51,11 @@ select
 	font-style: bold;
 }
 
+p.message
+{
+	border: 2px solid black;
+}
+
 #maincontent
 {
 	background-color: #eee;
