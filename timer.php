@@ -26,7 +26,7 @@ function getMessages()
 function sendMessage() 
 {
 	$messages = apc_fetch('messages');
-	$messages .= "<p class=\"message\""  . sanitize($_GET['message']) . "</p>";  //sanitize the input we receive from the client
+	$messages .= "<p class=\"message\" >"  . sanitize($_GET['message']) . "</p>";  //sanitize the input we receive from the client
 	apc_store("messages", $messages);
 }
 
