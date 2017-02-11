@@ -18,6 +18,20 @@ hr
 	color: #aaa;
 }
 
+#fullscreenButton
+{
+	position: absolute;
+	background: url("fullscreen.svg") no-repeat;
+	background-position: center; 
+	border: none;
+	width: 30px;
+	height: 25px;
+	background-size: 30px;
+	bottom: 5px;
+	right: 5px;
+	margin: 0px;
+}
+
 button
 {
 	height: 45px;
@@ -58,6 +72,7 @@ p.message
 
 #maincontent
 {
+	position: relative;
 	background-color: #eee;
 	width: 90%;
 	margin: 5px auto;
@@ -79,3 +94,4 @@ p.message
 	color: white;
 	border-radius: 15px;
 }
+
