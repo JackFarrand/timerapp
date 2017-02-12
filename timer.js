@@ -89,7 +89,7 @@ function updateTalkName()
     							if (xhr_talkName.status === 200) 
     							{
       							document.getElementById("talkName").innerHTML = xhr_talkName.responseText;	//set the response text to display in the relevant element.
-      							console.log(xhr_talkName.statusText);
+      							//console.log(xhr_talkName.statusText);  //removed to prevent logspam
     							}
     							else 
     							{
