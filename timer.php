@@ -102,7 +102,7 @@ function resetTimer()
 function increaseTime()
 {
 	$talkTime = apc_fetch("talkTime");
-	$talkTime += 60; //Add 60 seconds to the selected talk time
+	$talkTime += 1; //Add 1 minute to the selected talk time
 	apc_store("talkTime", $talkTime);
 	
 	$messages = apc_fetch('messages');
@@ -113,7 +113,7 @@ function increaseTime()
 function decreaseTime()
 {
 	$talkTime = apc_fetch("talkTime");
-	$talkTime -= 60; //subtract 60 seconds from the selected talk time
+	$talkTime -= 1; //subtract 1 minute from the selected talk time
 	apc_store("talkTime", $talkTime);
 	
 	$messages .= "<p class=\"message\" >"  . sanitize($talkTime) . "</p>";  //sanitize the input we receive from the client
