@@ -105,9 +105,6 @@ function increaseTime()
 	$talkTime += 1; //Add 1 minute to the selected talk time
 	apc_store("talkTime", $talkTime);
 	
-	$messages = apc_fetch('messages');
-	$messages .= "<p class=\"message\" >"  . sanitize($talkTime) . "</p>";  //sanitize the input we receive from the client
-	apc_store("messages", $messages);
 }
 
 function decreaseTime()
@@ -115,8 +112,6 @@ function decreaseTime()
 	$talkTime = apc_fetch("talkTime");
 	$talkTime -= 1; //subtract 1 minute from the selected talk time
 	apc_store("talkTime", $talkTime);
-	
-	$messages .= "<p class=\"message\" >"  . sanitize($talkTime) . "</p>";  //sanitize the input we receive from the client
 }
 
 /*Check the http header for function calls and execute the relevant functions if required*/
