@@ -109,7 +109,7 @@ function increaseTime()
 function decreaseTime()
 {
 	$talkTime = apc_fetch("talkTime");
-	$talkTime -= 60; //Add 60 seconds to the selected talk time
+	$talkTime -= 60; //subtract 60 seconds from the selected talk time
 	apc_store("talkTime", $talkTime);
 }
 

@@ -114,7 +114,9 @@ function setTalkName()
 	
 	var params = "functioncall=setTalkName&talkTime="+ talkTime +"&talkName=" + talkSelect.options[talkSelect.selectedIndex].value;	//set the function the server is supposed to execute by setting this variable's value
    xhr_talkName.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
-	xhr_talkName.send();     																	//Send the Ajax request to the server with the GET data
+	xhr_talkName.send();  	//Send the Ajax request to the server with the GET data
+	
+	console.log("talk name and time set");
 }
 
 function startTimer() 
@@ -123,7 +125,7 @@ function startTimer()
 	if (xhr_control== null) return;															//NOPE
 
 	var params = "functioncall=startTimer";
-   xhr_control.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
+    xhr_control.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
 	xhr_control.send();     																	//Send the Ajax request to the server with the GET data
 }
 
@@ -147,6 +149,7 @@ function decreaseTalkTime()
 	xhr_control.send();    																	//Send the Ajax request to the server with the GET data
 	
 	updateTimers();
+	console.log("decrement");
 }
 
 function increaseTalkTime()
@@ -159,6 +162,7 @@ function increaseTalkTime()
 	xhr_control.send();    																	//Send the Ajax request to the server with the GET data
 	
 	updateTimers();
+	console.log("increment");
 }
 
 
