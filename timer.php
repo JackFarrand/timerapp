@@ -54,7 +54,7 @@ function setTalkName()
 	apc_store("timerStarted", $started);
 	
 	$startTime = time();
-	apc_store(startTime, $startTime);
+	apc_store("startTime", $startTime);
 }
 
 function getTime()
@@ -98,6 +98,21 @@ function resetTimer()
 	apc_store("startTime", $startTime);
 }
 
+
+function increaseTime()
+{
+	$talkTime = apc_fetch("talkTime");
+	$talkTime += 60; //Add 60 seconds to the selected talk time
+	apc_store("talkTime", $talkTime);
+}
+
+function decreaseTime()
+{
+	$talkTime = apc_fetch("talkTime");
+	$talkTime -= 60; //Add 60 seconds to the selected talk time
+	apc_store("talkTime", $talkTime);
+}
+
 /*Check the http header for function calls and execute the relevant functions if required*/
 
 if($_GET['functioncall'] === "getMessages") 
@@ -127,6 +142,14 @@ elseif($_GET['functioncall'] === "startTimer")
 elseif($_GET['functioncall'] === "resetTimer") 
 {
 	resetTimer();
+}
+elseif($_GET['functioncall'] === "increaseTime") 
+{
+	increaseTime();
+}
+elseif($_GET['functioncall'] === "decreaseTime") 
+{
+	decreaseTime();
 }
 
 /*if an invalid function call is sent, reply with a stupid message*/

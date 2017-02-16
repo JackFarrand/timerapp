@@ -21,8 +21,12 @@
 	<h2 id="talkName">$Current Talk</h2>
 
 <!--	<p>Time Remaining:</p> -->
+
 	<p class="digitaltimer" id="timer_down">14:29</p>
 
+	<button id="decTimerButton" class="dec" onclick="decreaseTalkTime()">-</button>
+	<button id="incTimerButton" class="inc" onclick="increaseTalkTime()">+</button>
+	
 	<button id="startTimerButton" class="start" onclick="startTimer()">Start Timer</button>
 	<button id="ResetTimerButton"  class="reset" onclick="resetTimer()">Reset Timer</button>
 

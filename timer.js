@@ -137,6 +137,31 @@ function resetTimer()
 	xhr_control.send();    																	//Send the Ajax request to the server with the GET data
 }
 
+function decreaseTalkTime()
+{
+	xhr_control= new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
+	if (xhr_control== null) return;															//NOPE
+
+	var params = "functioncall=decreaseTime";
+	xhr_control.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
+	xhr_control.send();    																	//Send the Ajax request to the server with the GET data
+	
+	updateTimers();
+}
+
+function increaseTalkTime()
+{
+	xhr_control= new XMLHttpRequest(); 													//Don't support internet explorer, it's garbage and activeX is full of bugs, why waste the time?
+	if (xhr_control== null) return;															//NOPE
+
+	var params = "functioncall=increaseTime";
+	xhr_control.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
+	xhr_control.send();    																	//Send the Ajax request to the server with the GET data
+	
+	updateTimers();
+}
+
+
 function updateCountDownTimer() 
 {
 		
