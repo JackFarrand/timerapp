@@ -113,10 +113,10 @@ function setTalkName()
 	var talkTime = talkLengths[talkSelect.selectedIndex];
 	
 	var params = "functioncall=setTalkName&talkTime="+ talkTime +"&talkName=" + talkSelect.options[talkSelect.selectedIndex].value;	//set the function the server is supposed to execute by setting this variable's value
-   xhr_talkName.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
+	xhr_talkName.open("GET", "timer.php"+"?"+params, true);							//Initiate the XMLHttpRequest object - Doing this synchronously is a bad idea but fast and easy for now.
 	xhr_talkName.send();  	//Send the Ajax request to the server with the GET data
 	
-	console.log("talk name and time set");
+	//	console.log("talk name and time set"); //debug code
 }
 
 function startTimer() 
@@ -149,7 +149,7 @@ function decreaseTalkTime()
 	xhr_control.send();    																	//Send the Ajax request to the server with the GET data
 	
 	updateTimers();
-	console.log("decrement");
+	//console.log("decrement"); //debug code
 }
 
 function increaseTalkTime()
@@ -162,7 +162,7 @@ function increaseTalkTime()
 	xhr_control.send();    																	//Send the Ajax request to the server with the GET data
 	
 	updateTimers();
-	console.log("increment");
+	//console.log("increment"); //debug code
 }
 
 
